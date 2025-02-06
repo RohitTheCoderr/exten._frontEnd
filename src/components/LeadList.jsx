@@ -3,7 +3,7 @@ import LeadCard from './leadCard';
 import { useFetchLeads } from '../hooks/useFetch';
 import { toast } from 'react-toastify';
 import { deleteData, postData } from '../utils/apiCall';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAuthStore } from '../libs/zustand';
 
 const LeadList = () => {
@@ -36,8 +36,8 @@ const LeadList = () => {
         }
       );
       const data = await response;
-      console.log("data is ",data);
-      
+      console.log("data is ", data);
+
       if (data.success) {
         console.log("hello");
         refetch()
@@ -52,12 +52,24 @@ const LeadList = () => {
   console.log("userleads rohit kumar listlead", userleads);
   const leads = []
   return (
-    <div className="py-12  grid grid-cols-1 xl:grid-cols-2 gap-2 sm:gap-3 md:gap-4">
-      {userleads?.map((lead) => (
-        // <LeadCard key={lead.id} lead={lead}  />
-        <LeadCard key={lead._id} lead={lead} onDelete={deleteLead} />
-      ))}
-    </div>
+    <>
+      <h3 className="text-2xl sm:text-4xl font-semibold text-center pt-12 pb-6 text-blue-900 uppercase">List of lead</h3>
+      <div className=" flex justify-center items-center flex-wrap gap-6 ">
+
+        {userleads?.map((lead) => (
+          // <LeadCard key={lead.id} lead={lead}  />
+          <LeadCard key={lead._id} lead={lead} onDelete={deleteLead} />
+        ))}
+      </div>
+      <div className='m-auto w-full flex justify-center'>
+        
+        <Link to="/lead_management">
+          <button className="px-6 py-3 my-12 mx-auto items-center bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-lg shadow-lg transition duration-300">
+            Create new lead
+          </button>
+        </Link>
+      </div>
+    </>
   )
 }
 

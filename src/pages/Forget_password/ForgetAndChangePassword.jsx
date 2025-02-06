@@ -70,8 +70,8 @@ function ForgetAndChangePassword() {
     }
 
     return (
-        <div className="flex items-center justify-center h-auto py-12 bg-gray-200">
-            <div className="w-full max-w-md p-8 bg-white rounded-2xl shadow-lg">
+        <div className="flex items-center justify-center h-auto py-12">
+            <div className="w-full max-w-md p-8 bg-gradient-to-r from-cyan-50 to-blue-100 rounded-2xl shadow-lg">
                 <Formik
                     initialValues={flag1 ? { ...changePassword.initialVaues, otpID } : otpForm.initialVaues}
                     validationSchema={flag1 ? changePassword.validationSchema : otpForm.validationSchema}

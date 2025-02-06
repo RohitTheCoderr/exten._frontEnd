@@ -53,6 +53,9 @@ import { useAuthStore } from '../libs/zustand';
  
   return (
     <>
+    <div className='bg-gradient-to-r from-cyan-50 to-blue-100 p-4 rounded-xl'>
+
+   
       <Formik
         initialValues={createLeadForm.initialVaues}
         validationSchema={createLeadForm.validationSchema}
@@ -75,11 +78,13 @@ import { useAuthStore } from '../libs/zustand';
               type="select"
               options={["New", "Contacted", "Closed"]}
             />
-            <Button type="submit" name={"create lead"} style="w-full mb-3 m-0 focus:ring-orange-500" />
+            <Button type="submit" name={"Create lead"} style="w-full mb-3 m-0 focus:ring-orange-500" />
 
           </Form>
         )}
       </Formik>
+
+      </div>
     </>
   );
 };
