@@ -1,6 +1,6 @@
 import { ErrorMessage, Field } from "formik"
 
-export function TextInput({ label, name, type, labelColor, value, style, attribute }) {
+export function TextInput({ label, name, type, labelColor, value, style, attribute ,options }) {
   return (
     <div className="w-[100%] m-auto rounded-sm my-3">
       {label ?
@@ -12,15 +12,35 @@ export function TextInput({ label, name, type, labelColor, value, style, attribu
         </label>
         : null
       }
-      <Field
-        className={`h-[2.5rem] text-[18px] border-b-[1px] bg-transparent  border-blue-950 rounded-sm w-[100%] outline-none  ${style} `}
-        name={name}
-        autoComplete="off"
-        type={type}
-        value={value}
-        placeholder={`Enter ${name}`}
-        {...attribute}
-      />
+
+      {type === "select" ? (
+        <Field
+          as="select"
+          name={name}
+          className={`h-[2.5rem] text-[18px] border-b-[1px] bg-transparent border-blue-950 rounded-sm w-[100%] outline-none ${style}`}
+          {...attribute}
+        >
+          <option value="">Select {name}</option>
+          {options?.map((option) => (
+            <option key={option} value={option}>
+              {option}
+            </option>
+          ))}
+        </Field>
+      ) : (
+
+
+        <Field
+          className={`h-[2.5rem] text-[18px] border-b-[1px] bg-transparent  border-blue-950 rounded-sm w-[100%] outline-none  ${style} `}
+          name={name}
+          autoComplete="off"
+          type={type}
+          value={value}
+          placeholder={`Enter ${name}`}
+          {...attribute}
+        />
+      )
+      }
       <div className="text-red-500 h-3 text-xs">
         <ErrorMessage name={name} />
       </div>

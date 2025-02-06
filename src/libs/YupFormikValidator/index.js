@@ -32,6 +32,10 @@ const nameValidate = Yup.string()
 
 const otpValidate = Yup.string().required("required");
 
+const status=Yup.string().required("status field is required")
+
+
+
 const LoginForm = {
   initialVaues: {
     phoneNumberOrEmail: "",
@@ -92,4 +96,26 @@ const changePassword={
   }),
 }
 
-export { LoginForm, signUpForm, otpForm,changePassword };
+// //// for leads validation start from here /////
+
+// +++++++++ create lead form +++++++++++++++++
+const createLeadForm={
+  initialVaues:{
+    name: "",
+    email: "",
+    status: "",
+    phoneNumber: "",
+  },
+
+  validationSchema: Yup.object({
+    name: nameValidate,
+    email: phoneNumberOrEmailValidate, /// we can also same for email or phonenumber because both mention same name,
+    status: status,
+    phoneNumber: phoneNumberOrEmailValidate,
+  }),
+}
+
+
+
+
+export { LoginForm, signUpForm, otpForm,changePassword, createLeadForm };
