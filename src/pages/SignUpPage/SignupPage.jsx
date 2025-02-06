@@ -89,7 +89,7 @@ function SignupPage() {
     }
 
     return (
-        <div className="flex items-center justify-center h-[80vh] bg-gray-200">
+        <div className="flex items-center justify-center h-auto py-12 bg-gray-200">
            <div className="w-full max-w-md p-8 bg-white rounded-2xl shadow-lg">
            <Formik
                     initialValues={flag ? { ...signUpForm.initialVaues, otpID } : otpForm.initialVaues}

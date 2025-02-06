@@ -51,7 +51,7 @@ export default function LogInPage() {
         }
     }
     return (
-      <div className="flex items-center justify-center h-[90vh] bg-gray-300 ">
+      <div className="flex items-center justify-center h-auto py-12 bg-gray-300 ">
       <div className="w-full max-w-md p-8 bg-white rounded-2xl shadow-lg">
          <Formik
             initialValues={LoginForm.initialVaues}
@@ -72,7 +72,7 @@ export default function LogInPage() {
                   <Button type="submit" name={"Log In"} style={"w-[5.5rem] focus:ring-orange-500"} />
                   <div>
                     <li className="list-none no-underline hover:underline text-[#db4444] text-[13px]">
-                      <Link to={"/forgetpassword"}>Forget password ?</Link>
+                      <Link to={"/forgetPassword"}>Forget password ?</Link>
                     </li>
                     <li className="list-none no-underline hover:underline text-[#db4444] mt-2 text-[13px]">
                       <Link to={"/signup"}>Create Account</Link>

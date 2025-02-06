@@ -22,7 +22,7 @@ function Header() {
         {isLoggedIn ? (
           <button
             onClick={() => removeToken()}
-            className="px-4 py-2 bg-red-600 hover:bg-red-700 rounded-xl text-white"
+            className="px-4 py-1 bg-red-600 hover:bg-red-700 rounded-sm text-white"
           >
             Logout
           </button>

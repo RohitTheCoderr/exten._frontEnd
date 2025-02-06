@@ -6,6 +6,7 @@ import './index.css'
 import HomePage from './pages/home/HomePage.jsx'
 import SignupPage from './pages/SignUpPage/SignupPage.jsx'
 import LogInPage from './pages/LoginPage/LogInPage.jsx'
+import ForgetAndChangePassword from './pages/Forget_password/ForgetAndChangePassword.jsx'
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
       {
         path:"/signUp",
         element:<SignupPage/>
+      },
+      {
+        path:"/forgetPassword",
+        element:<ForgetAndChangePassword/>
       },
       
     ]
