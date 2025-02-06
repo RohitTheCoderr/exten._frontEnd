@@ -13,7 +13,7 @@ export function TextInput({ label, name, type, labelColor, value, style, attribu
         : null
       }
       <Field
-        className={`h-[2.5rem] text-[18px] border-[1px] border-blue-950 rounded-sm w-[100%] outline-none  ${style} `}
+        className={`h-[2.5rem] text-[18px] border-b-[1px] bg-transparent  border-blue-950 rounded-sm w-[100%] outline-none  ${style} `}
         name={name}
         autoComplete="off"
         type={type}

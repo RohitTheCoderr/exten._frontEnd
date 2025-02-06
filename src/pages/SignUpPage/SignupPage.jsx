@@ -89,9 +89,9 @@ function SignupPage() {
     }
 
     return (
-        <div className='w-full lg:w-[90vw] mx-auto my-4 sm:my-6 md:my-[3rem] flex flex-wrap items-center justify-center'>
-            <div className='w-full sm:w-[20rem] md:w-[17rem] lg:w-[17rem] xl:w-[20rem] mt-6 md:mt-0 h-auto'>
-                <Formik
+        <div className="flex items-center justify-center h-[80vh] bg-gray-200">
+           <div className="w-full max-w-md p-8 bg-white rounded-2xl shadow-lg">
+           <Formik
                     initialValues={flag ? { ...signUpForm.initialVaues, otpID } : otpForm.initialVaues}
                     enableReinitialize
                     validationSchema={flag ? signUpForm.validationSchema : otpForm.validationSchema}
@@ -99,8 +99,8 @@ function SignupPage() {
                 >
                     {() => (
                         <Form>
-                            <h2 className='font-inter text-[1.2rem] text-center sm:text-start sm:text-[1.4rem] font-Five my-1 tracking-wider'>
-                                {flag ? "Sign Up to ShopEase" : "Enter Email Or Phone No."}
+                            <h2 className='font-inter text-[1.2rem] text-center mb-4 sm:text-[1.4rem] font-bold text-[#001A6E] my-1 tracking-wider'>
+                                {flag ? "Sign Up " : "Enter Email Or Phone No"}
                             </h2>
                             <p className='text-[13px] sm:text-[14px] text-center sm:text-start font-Poppins tracking-wider'>
                                 {flag ? "Enter your details below" : "So that, We can verify you via OTP"}
