@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import LeadForm from '../components/leadForm';
+import LeadForm from '../components/LeadForm';
 
 const LeadManagement = () => {
 
