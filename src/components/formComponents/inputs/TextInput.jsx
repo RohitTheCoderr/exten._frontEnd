@@ -1,17 +1,70 @@
-import { ErrorMessage, Field } from "formik"
+// import { ErrorMessage, Field } from "formik"
 
-export function TextInput({ label, name, type, labelColor, value, style, attribute ,options }) {
+// export function TextInput({ label, name, type, labelColor, value, style, attribute ,options }) {
+//   return (
+//     <div className="w-[100%] m-auto rounded-sm my-3">
+//       {label ?
+//         <label
+//           className={`text-[0.8rem]  py-1 text-start ${labelColor ? labelColor : "text-blue-800"}`}
+//           htmlFor={label}
+//         >
+//           {label}
+//         </label>
+//         : null
+//       }
+
+//       {type === "select" ? (
+//         <Field
+//           as="select"
+//           name={name}
+//           className={`h-[2.5rem] text-[18px] border-b-[1px] bg-transparent border-blue-950 rounded-sm w-[100%] outline-none ${style}`}
+//           {...attribute}
+//         >
+//           <option value="">Select {name}</option>
+//           {options?.map((option) => (
+//             <option key={option} value={option}>
+//               {option}
+//             </option>
+//           ))}
+//         </Field>
+//       ) : (
+
+
+//         <Field
+//           className={`h-[2.5rem] text-[18px] border-b-[1px] bg-transparent  border-blue-950 rounded-sm w-[100%] outline-none  ${style} `}
+//           name={name}
+//           autoComplete="off"
+//           type={type}
+//           value={value}
+//           placeholder={`Enter ${name}`}
+//           {...attribute}
+//         />
+//       )
+//       }
+//       <div className="text-red-500 h-3 text-xs">
+//         <ErrorMessage name={name} />
+//       </div>
+
+//     </div>
+//   )
+// }
+
+
+
+
+import { ErrorMessage, Field } from "formik";
+
+export function TextInput({ label, name, type, labelColor, style, attribute, options }) {
   return (
     <div className="w-[100%] m-auto rounded-sm my-3">
-      {label ?
+      {label && (
         <label
-          className={`text-[0.8rem]  py-1 text-start ${labelColor ? labelColor : "text-blue-800"}`}
-          htmlFor={label}
+          className={`text-[0.8rem] py-1 text-start ${labelColor ? labelColor : "text-blue-800"}`}
+          htmlFor={name}
         >
           {label}
         </label>
-        : null
-      }
+      )}
 
       {type === "select" ? (
         <Field
@@ -20,7 +73,7 @@ export function TextInput({ label, name, type, labelColor, value, style, attribu
           className={`h-[2.5rem] text-[18px] border-b-[1px] bg-transparent border-blue-950 rounded-sm w-[100%] outline-none ${style}`}
           {...attribute}
         >
-          <option value="">Select {name}</option>
+          <option value="">Select {label}</option>
           {options?.map((option) => (
             <option key={option} value={option}>
               {option}
@@ -28,24 +81,20 @@ export function TextInput({ label, name, type, labelColor, value, style, attribu
           ))}
         </Field>
       ) : (
-
-
         <Field
-          className={`h-[2.5rem] text-[18px] border-b-[1px] bg-transparent  border-blue-950 rounded-sm w-[100%] outline-none  ${style} `}
+          className={`h-[2.5rem] text-[18px] border-b-[1px] bg-transparent border-blue-950 rounded-sm w-[100%] outline-none ${style}`}
           name={name}
           autoComplete="off"
           type={type}
-          value={value}
-          placeholder={`Enter ${name}`}
+          placeholder={`Enter ${label}`}
           {...attribute}
         />
-      )
-      }
+      )}
+
       <div className="text-red-500 h-3 text-xs">
         <ErrorMessage name={name} />
       </div>
-
     </div>
-  )
+  );
 }
 

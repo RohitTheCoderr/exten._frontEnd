@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { createLeadForm } from '../libs/YupFormikValidator';
 import { Formik, Form } from 'formik'
 import { useLocation, useNavigate } from "react-router-dom"
@@ -14,8 +14,6 @@ const LeadForm = () => {
   const { state } = useLocation();
   const leadData = state?.leadData;
 
-  console.log("leadData is", leadData);
-  
   // Redirect to login if the user is not logged in
   useEffect(() => {
     if (!token) {
@@ -24,20 +22,14 @@ const LeadForm = () => {
     }
   }, [token, navigate]);
 
-  async function submitForm(values, option) {
-    console.log("lead form data", values);
-
+  async function submitForm(values, actions) {
     if (values?.phoneNumber) {
       values.phoneNumber = "+91" + values.phoneNumber
     }
 
     try {
-      console.log('before responce', values);
-      const apiCall = leadData
-        ? patchData(`/api/users/lead/update_leads/${leadData._id}`, values)
+      const apiCall = leadData ? patchData(`/api/users/lead/update_leads/${leadData._id}`, values)
         : postData("/api/users/lead/create_leads", values)
-
-      console.log('after responce', apiCall);
 
       toast.promise(
         apiCall,
@@ -48,22 +40,25 @@ const LeadForm = () => {
         }
       );
       const data = await apiCall;
-      // if (data.success) {
-      //   // console.log("success leadsss data", data);
-      // }
-      option.resetForm()
-      navigate("/lead_list");
+      if (data.success) {
+        // resetForm() // resetForm is not working so in the place we use below set empty value
+        actions.setValues({
+          email: "",
+          name: "",
+          phoneNumber: "",
+          status: "",
+        });
+        navigate("/lead_list");
+      }
 
     } catch (error) {
-      toast.warn("An error occurred:" + error?.response?.data?.message)
+      toast.warn("Error: " + error?.response?.data?.message)
     }
   }
 
   return (
     <>
       <div className='bg-gradient-to-r from-cyan-50 to-blue-100 p-4 rounded-xl'>
-
-
         <Formik
           initialValues={{
             email: leadData?.email || "",
@@ -71,33 +66,28 @@ const LeadForm = () => {
             phoneNumber: leadData?.phoneNumber?.replace("+91", "") || "",
             status: leadData?.status || "New",
           }}
-          enableReinitialize
+          enableReinitialize={true}
           validationSchema={createLeadForm.validationSchema}
           onSubmit={submitForm}
-
         >
           {() => (
             <Form>
               <h2 className="font-inter text-[1.2rem] text-center mb-4 sm:text-[1.4rem] font-bold text-[#001A6E] my-1 tracking-wider uppercase">
                 {leadData ? "Update Lead" : "Create Lead"}
               </h2>
-
-
-              <TextInput label="email *" name="email" type="input" />
+              <TextInput label="Email *" name="email" type="input" />
               <TextInput label="Name *" name="name" type="input" />
-              <TextInput label="phoneNumber *" name="phoneNumber" type="input" />
+              <TextInput label="Phone Number *" name="phoneNumber" type="input" />
               <TextInput
                 label="Status *"
                 name="status"
                 type="select"
                 options={["New", "Contacted", "Closed"]}
               />
-              <Button type="submit"  name={leadData ? "Update Lead" : "Create Lead"} style="w-full mb-3 m-0 focus:ring-orange-500" />
-
+              <Button type="submit" name={leadData ? "Update Lead" : "Create Lead"} style="w-full mb-3 m-0 focus:ring-orange-500" />
             </Form>
           )}
         </Formik>
-
       </div>
     </>
   );

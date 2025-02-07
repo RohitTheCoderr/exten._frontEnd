@@ -11,7 +11,7 @@ export default function App() {
   return (< div className={styles.container}>
     <Loader />
     <Header/>
-    <ToastContainer/>
+    <ToastContainer />
     <Outlet/>
     <Footer/>
   </div>
