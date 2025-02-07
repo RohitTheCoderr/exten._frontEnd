@@ -5,6 +5,7 @@ import { Outlet } from "react-router-dom";
 import Header from "./layouts/header/Header";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Footer from "./layouts/footer/Footer";
 
 export default function App() {
   return (< div className={styles.container}>
@@ -12,6 +13,7 @@ export default function App() {
     <Header/>
     <ToastContainer/>
     <Outlet/>
+    <Footer/>
   </div>
   );
 }
