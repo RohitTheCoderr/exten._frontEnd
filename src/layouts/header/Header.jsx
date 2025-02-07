@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuthStore } from "../../libs/zustand";
-import { Menu, X } from 'lucide-react';
+import { FiMenu,FiX  } from "react-icons/fi";
 
 function Header() {
   const { removeToken, token } = useAuthStore((state) => state);
@@ -21,7 +21,7 @@ function Header() {
           className="block md:hidden text-white"
           onClick={() => setMenuOpen(!menuOpen)}
         >
-          {menuOpen ? <X size={28} /> : <Menu size={28} />}
+          {menuOpen ? <FiX size={28} /> : <FiMenu size={28} />}
         </button>
 
         {/* Navigation Links */}

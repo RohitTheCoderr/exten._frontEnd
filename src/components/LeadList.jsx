@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
-import LeadCard from './leadCard';
 import { useFetchLeads } from '../hooks/useFetch';
 import { toast } from 'react-toastify';
 import { deleteData, postData } from '../utils/apiCall';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuthStore } from '../libs/zustand';
+import LeadCard from './LeadCard';
 
 const LeadList = () => {
   const { userleads, refetch } = useFetchLeads()
@@ -12,10 +12,10 @@ const LeadList = () => {
   const { token } = useAuthStore((state) => state);
   const navigate = useNavigate();
 
-  // Redirect to login if the user is not logged in
   useEffect(() => {
     refetch()
-
+    
+    // Redirect to login if the user is not logged in
     if (!token) {
       toast.warn("Please login to access this page");
       navigate("/login");
@@ -64,7 +64,7 @@ const LeadList = () => {
       <div className='m-auto w-full flex justify-center'>
         
         <Link to="/lead_management">
-          <button className="px-6 py-3 my-12 mx-auto items-center bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-lg shadow-lg transition duration-300">
+          <button className="px-6 py-3 my-12 mx-auto items-center bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg shadow-lg transition duration-300" >
             Create new lead
           </button>
         </Link>

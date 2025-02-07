@@ -12,7 +12,7 @@ const HomePage = () => {
             A powerful platform for managing, tracking, and organizing your leads efficiently.
           </p>
           <Link to="/lead_management">
-            <button className="px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-lg shadow-lg transition duration-300">
+            <button className="px-6 py-3 bg-gradient-to-r from-fuchsia-500 to-purple-700 hover:bg-gradient-to-l hover:from-fuchsia-600 hover:to-purple-800  text-white font-semibold rounded-lg shadow-lg transition duration-300">
               Create Lead
             </button>
           </Link>
