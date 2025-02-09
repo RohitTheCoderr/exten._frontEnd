@@ -59,7 +59,7 @@ export function TextInput({ label, name, type, labelColor, style, attribute, opt
     <div className="w-[100%] m-auto rounded-sm my-3">
       {label && (
         <label
-          className={`text-[0.8rem] py-1 text-start ${labelColor ? labelColor : "text-blue-800"}`}
+          className={`text-[1rem] py-1  text-start ${labelColor ? labelColor : "text-white"}`}
           htmlFor={name}
         >
           {label}
@@ -70,7 +70,7 @@ export function TextInput({ label, name, type, labelColor, style, attribute, opt
         <Field
           as="select"
           name={name}
-          className={`h-[2.5rem] text-[18px] border-b-[1px] bg-transparent border-blue-950 rounded-sm w-[100%] outline-none ${style}`}
+          className={`h-[2.5rem] text-[18px] border-b-[1px]  bg-white/30 backdrop-blur-md border-blue-950 rounded-lg px-2 w-[100%] outline-none ${style}`}
           {...attribute}
         >
           <option value="">Select {label}</option>
@@ -82,7 +82,7 @@ export function TextInput({ label, name, type, labelColor, style, attribute, opt
         </Field>
       ) : (
         <Field
-          className={`h-[2.5rem] text-[18px] border-b-[1px] bg-transparent border-blue-950 rounded-sm w-[100%] outline-none ${style}`}
+          className={`h-[2.5rem] text-[18px] border-[1px] bg-white/30 backdrop-blur-md border-blue-950 rounded-lg px-2 w-[100%] outline-none ${style}`}
           name={name}
           autoComplete="off"
           type={type}

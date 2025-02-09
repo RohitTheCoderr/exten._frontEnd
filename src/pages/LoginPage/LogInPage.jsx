@@ -13,6 +13,7 @@ export default function LogInPage() {
     const navigate = useNavigate()
 
     async function submitForm(values, option) {
+
         const val = values.phoneNumberOrEmail
         const isPhoneNumber = /^\d{10}$/.test(val);
         const isEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
@@ -27,16 +28,12 @@ export default function LogInPage() {
         delete values.phoneNumberOrEmail
 
         try {
-          console.log('before responce', values);
             const myPromise = postData("/api/users/user/login", values)
-            
-            console.log('after responce', myPromise);
-            
             toast.promise(
                 myPromise,
                 {
                     pending: 'logging...',
-                    success: 'logged in 👌',
+                    success: 'Login successfully 👌',
                     error: 'something went wrong.. 🤯',
                 }
             );
@@ -47,12 +44,15 @@ export default function LogInPage() {
             }
             option.resetForm()
         } catch (error) {
-            toast.warn("An error occurred:" + error?.response?.data?.message)
+            toast.warn("Error: " + error?.response?.data?.message)
         }
     }
     return (
       <div className="flex items-center justify-center h-auto py-12 ">
-      <div className="w-full max-w-md p-8 bg-gradient-to-r from-cyan-50 to-blue-100 rounded-2xl shadow-lg">
+      {/* <div className="w-full max-w-md p-8 bg-gradient-to-r from-cyan-50 to-blue-100 rounded-2xl shadow-lg"> */}
+      <div className="w-full max-w-md p-2 sm:p-8 flex items-center bg-[url('/images/common/evening.jpg')] bg-cover bg-center rounded-2xl shadow-lg">
+            <div className=" inset-0 p-2 sm:p-6 bg-white/30 backdrop-blur-md rounded-2xl">
+            
          <Formik
             initialValues={LoginForm.initialVaues}
             validationSchema={LoginForm.validationSchema}
@@ -82,6 +82,7 @@ export default function LogInPage() {
               </Form>
             )}
           </Formik>
+        </div>
         </div>
       </div>
       

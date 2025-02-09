@@ -23,23 +23,19 @@ function ForgetAndChangePassword() {
         } else if (isEmail) {
             values.email = val;
         } else {
-            alert("Please enter a valid phone number or email.");
+            toast("Please enter a valid phone number or email.");
             return;
         }
 
         delete values.phoneNumberOrEmail;
         delete values.confirm_password;
         delete values.otpID;
-        console.log('berore try block', values);
 
         try {
             if (flag1) {
-                console.log('afwrefvdf', values);
                 if (values.phoneNumber) {
                     values.otpID = otpID;
                 }
-                // delete values.otpID
-                console.log("veeedelete forgetpassword", values);
 
                 const response = patchData("/api/users/user/change_password", values);
                 toast.promise(response, {
@@ -48,10 +44,9 @@ function ForgetAndChangePassword() {
                     reject: "password  can't changed"
                 })
                 await response;
-                navigate("/")
+                navigate("/login")
+                
             } else {
-                console.log("forgete password otp before hit url ", values);
-
                 const otpDataPromise = postData("/api/users/user/send_forgot_password_otp", values);
                 toast.promise(otpDataPromise, {
                     pending: "sending OTP",
@@ -71,7 +66,8 @@ function ForgetAndChangePassword() {
 
     return (
         <div className="flex items-center justify-center h-auto py-12">
-            <div className="w-full max-w-md p-8 bg-gradient-to-r from-cyan-50 to-blue-100 rounded-2xl shadow-lg">
+            <div className="w-full max-w-md p-2 sm:p-8 flex items-center bg-[url('/images/common/evening.jpg')] bg-cover bg-center rounded-2xl shadow-lg">
+            <div className=" inset-0 p-2 sm:p-6 bg-white/30 backdrop-blur-md rounded-2xl">
                 <Formik
                     initialValues={flag1 ? { ...changePassword.initialVaues, otpID } : otpForm.initialVaues}
                     validationSchema={flag1 ? changePassword.validationSchema : otpForm.validationSchema}
@@ -102,6 +98,7 @@ function ForgetAndChangePassword() {
                         </Form>
                     )}
                 </Formik>
+            </div>
             </div>
         </div>
     );

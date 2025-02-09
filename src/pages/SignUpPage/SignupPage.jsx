@@ -13,7 +13,6 @@ function SignupPage() {
     const setToken = useAuthStore((state) => state.setToken)
     const [flag, setFlag] = useState(false);
     const [otpID, setOtpID] = useState("");
-
     const navigate = useNavigate()
 
     async function submitForm(values, actions) {
@@ -26,22 +25,15 @@ function SignupPage() {
         } else if (isEmail) {
             values.email = val;
         }
-
         delete values.phoneNumberOrEmail;
         delete values.confirm_password;
 
-        console.log("before try", values);
         try {
             if (flag) {
                 if (values.phoneNumber) {
                     values.otpID = otpID;
                 }
-                console.log("before submit", values);
-
                 const userCreate = postData("/api/users/user/signup/", values);
-                console.log("after submit", userCreate);
-
-
                 toast.promise(
                     userCreate, {
                     pending: "user creating..",
@@ -54,10 +46,9 @@ function SignupPage() {
                 navigate("/")
                 actions.resetForm();
                 toast("Sign up successful ✌");
+
             } else {
                 const sendOTP = postData("/api/users/user/send_signup_otp/", values);
-                console.log("otpdtata", sendOTP);
-
                 toast.promise(
                     sendOTP, {
                     pending: "OTP sending..",
@@ -66,23 +57,17 @@ function SignupPage() {
                 }
                 )
                 const otpData = await sendOTP;
-                console.log("dataaa", otpData);
 
                 if (isPhoneNumber) {
                     setOtpID(otpData?.data?.otpID);
                 }
                 if (otpData?.success) {
-                    console.log("rohit checking success", otpData?.success);
-
                     setFlag(true);
-                    console.log("flag valur", flag);
-
                     signUpForm.initialVaues.phoneNumberOrEmail = val
                 }
             }
 
         } catch (error) {
-            // actions.resetForm();
             toast(error?.response?.data?.message);
         }
 
@@ -90,7 +75,10 @@ function SignupPage() {
 
     return (
         <div className="flex items-center justify-center h-auto py-12 ">
-           <div className="w-full max-w-md p-8 bg-gradient-to-r from-cyan-50 to-blue-100 rounded-2xl shadow-lg">
+           {/* <div className="w-full max-w-md p-8 bg-gradient-to-r from-cyan-50 to-blue-100 rounded-2xl shadow-lg"> */}
+           <div className="w-full max-w-md flex items-center p-2 sm:p-8 bg-[url('/images/common/evening.jpg')] bg-cover bg-center rounded-2xl shadow-lg">
+            <div className=" inset-0 p-2 sm:p-6 bg-white/30 backdrop-blur-md rounded-2xl">
+            
            <Formik
                     initialValues={flag ? { ...signUpForm.initialVaues, otpID } : otpForm.initialVaues}
                     enableReinitialize
@@ -127,6 +115,7 @@ function SignupPage() {
                         </Form>
                     )}
                 </Formik>
+            </div>
             </div>
         </div>
 
