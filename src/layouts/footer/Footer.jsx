@@ -20,10 +20,10 @@ const Footer = () => {
           
           {/* Call Us */}
           <div className="w-52 py-4">
-            <h3 className="flex items-center uppercase text-white text-lg" data-aos="fade-down">
+            <h3 className="flex items-center uppercase text-white text-lg" >
               <FaPhone className="text-fuchsia-500 mr-3" /> Call Us
             </h3>
-            <div className="w-8 h-1 bg-gradient-to-r from-fuchsia-500 to-purple-700 my-4" data-aos="fade-down"></div>
+            <div className="w-8 h-1 bg-gradient-to-r from-fuchsia-500 to-purple-700 my-4" ></div>
             <div>
               <p className="text-gray-400 text-sm">
                 <span className="text-white">Phone:  </span> +91-9654853181
@@ -36,10 +36,10 @@ const Footer = () => {
 
           {/* Address */}
           <div className="w-52 py-4">
-            <h3 className="flex items-center uppercase text-white text-lg" data-aos="fade-down">
+            <h3 className="flex items-center uppercase text-white text-lg" >
               <FaLocationDot className="text-fuchsia-500 mr-3" /> Address
             </h3>
-            <div className="w-8 h-1 bg-gradient-to-r from-fuchsia-500 to-purple-700 my-4" data-aos="fade-down"></div>
+            <div className="w-8 h-1 bg-gradient-to-r from-fuchsia-500 to-purple-700 my-4" ></div>
             <div>
               <p className="text-gray-400 text-sm">
                 <span className="text-white">Location: </span>
@@ -51,10 +51,10 @@ const Footer = () => {
 
           {/* Mail Us */}
           <div className="w-64 py-4">
-            <h3 className="flex items-center uppercase text-white text-lg" data-aos="fade-down">
+            <h3 className="flex items-center uppercase text-white text-lg" >
               <FaEnvelope className="text-fuchsia-500 mr-3" /> Mail Us
             </h3>
-            <div className="w-8 h-1 bg-gradient-to-r from-fuchsia-500 to-purple-700 my-4" data-aos="fade-down"></div>
+            <div className="w-8 h-1 bg-gradient-to-r from-fuchsia-500 to-purple-700 my-4" ></div>
             <div>
               <p className="text-gray-400 text-sm">
                 <span className="text-white">Gmail 1: </span>rohitkumar9643017@gmail.com
@@ -67,10 +67,10 @@ const Footer = () => {
 
           {/* Office */}
           <div className="w-52 py-4">
-            <h3 className="flex items-center uppercase text-white text-lg" data-aos="fade-down">
+            <h3 className="flex items-center uppercase text-white text-lg" >
               <FaGlobe className="text-fuchsia-500 mr-3" /> Link
             </h3>
-            <div className="w-8 h-1 bg-gradient-to-r from-fuchsia-500 to-purple-700 my-4" data-aos="fade-down"></div>
+            <div className="w-8 h-1 bg-gradient-to-r from-fuchsia-500 to-purple-700 my-4" ></div>
             <div>
               
               <NavLink to={"/"}><p className="text-gray-400 text-sm">
