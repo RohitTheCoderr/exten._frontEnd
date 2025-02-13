@@ -50,7 +50,7 @@ export default function LogInPage() {
     return (
       <div className="flex items-center justify-center h-auto py-12 ">
       {/* <div className="w-full max-w-md p-8 bg-gradient-to-r from-cyan-50 to-blue-100 rounded-2xl shadow-lg"> */}
-      <div className="w-full max-w-md p-2 sm:p-8 flex items-center bg-[url('/images/common/evening.jpg')] bg-cover bg-center rounded-2xl shadow-lg">
+      <div className="w-full max-w-md p-2 sm:p-8 flex items-center justify-center bg-[url('/images/common/evening.jpg')] bg-cover bg-center rounded-2xl shadow-lg">
             <div className=" inset-0 p-2 sm:p-6 bg-white/30 backdrop-blur-md rounded-2xl">
             
          <Formik

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuthStore } from "../../libs/zustand";
 import { FiMenu,FiX  } from "react-icons/fi";
@@ -7,6 +7,24 @@ function Header() {
   const { removeToken, token } = useAuthStore((state) => state);
   const isLoggedIn = !!token;
   const [menuOpen, setMenuOpen] = useState(false);
+ const menuRef =useRef(null)
+
+ const handleClickOutside = (event) => {
+   if (menuRef.current && !menuRef.current.contains(event.target)) {
+     setMenuOpen(false);
+   }
+ };
+ 
+  useEffect(() => {
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+
+
 
   return (
     <header className="bg-gradient-to-r from-fuchsia-500 to-purple-700 text-white shadow-lg">
@@ -26,15 +44,16 @@ function Header() {
 
         {/* Navigation Links */}
         <nav
+        ref={menuRef}
           className={`${
             menuOpen ? 'flex' : 'hidden'
-          } md:flex flex-col md:flex-row items-center gap-2 absolute md:static top-20 right-0 w-auto md:w-auto bg-fuchsia-500 md:bg-transparent z-10 p-4 md:p-0`}
+          } md:flex flex-col md:flex-row items-center gap-5 absolute md:static top-20 right-0 w-auto md:w-auto bg-fuchsia-500 md:bg-transparent z-10 p-4 md:p-0`}
         >
           <Link to="/" className="text-lg hover:text-fuchsia-200">
             Home
           </Link>
           <Link to="/lead_list" className="text-lg hover:text-fuchsia-200">
-            Lead
+           My Lead
           </Link>
 
           {isLoggedIn ? (

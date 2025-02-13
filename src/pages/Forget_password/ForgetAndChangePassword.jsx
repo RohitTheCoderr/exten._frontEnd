@@ -66,7 +66,7 @@ function ForgetAndChangePassword() {
 
     return (
         <div className="flex items-center justify-center h-auto py-12">
-            <div className="w-full max-w-md p-2 sm:p-8 flex items-center bg-[url('/images/common/evening.jpg')] bg-cover bg-center rounded-2xl shadow-lg">
+            <div className="w-full max-w-md p-2 sm:p-8 flex items-center justify-center bg-[url('/images/common/evening.jpg')] bg-cover bg-center rounded-2xl shadow-lg">
             <div className=" inset-0 p-2 sm:p-6 bg-white/30 backdrop-blur-md rounded-2xl">
                 <Formik
                     initialValues={flag1 ? { ...changePassword.initialVaues, otpID } : otpForm.initialVaues}
@@ -93,7 +93,7 @@ function ForgetAndChangePassword() {
                             <Button type="submit" name={flag1 ? "Submit" : "Send OTP"} style="w-[100%] my-0 mb-2" />
                             <div className='flex items-center gap-6'>
                                 <span className='text-[16px]'>Go to Login page</span>
-                                <a className='no-underline hover:underline text-[#55AD9B] text-[13px]'><Link to={"/login"}>Login</Link></a>
+                                <a className='no-underline hover:underline text-[#db4444] text-[13px]'><Link to={"/login"}>Login</Link></a>
                             </div>
                         </Form>
                     )}
