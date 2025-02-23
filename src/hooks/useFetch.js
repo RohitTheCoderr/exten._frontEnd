@@ -26,7 +26,30 @@ export const useFetchLeads = () => {
     return { userleads ,refetch: fetchMyLead};
 };
 
+//  fetching All User's Leads
 
+export const useFetchAllLeads = () => {
+    const [alluserleads, setAlluserleads] = useState([]);
+
+    useEffect(() => {
+        fetchAllLead();
+    }, []);
+
+    async function fetchAllLead() {
+        try {
+            const fetchLeads = getData("/api/users/lead/getsAll_leads");
+            const response = await fetchLeads;
+            console.log("userleads in useFatch file", response);
+            
+            setAlluserleads(response?.data?.Leads);
+        } catch (error) {
+            // toast.error(error?.response?.data?.message || "An error occurred.");
+            console.log(error?.response?.data?.message || "An error occurred.");
+        }
+    }
+
+    return { alluserleads ,refetch: fetchAllLead};
+};
 
 
 

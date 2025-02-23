@@ -9,6 +9,7 @@ import LogInPage from './pages/LoginPage/LogInPage.jsx'
 import ForgetAndChangePassword from './pages/Forget_password/ForgetAndChangePassword.jsx'
 import LeadManagement from './pages/LeadManagement.jsx'
 import LeadList from './components/LeadList.jsx'
+import Allleads from './pages/allleads/Allleads.jsx'
 
 const router = createBrowserRouter([
   {
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
         path:"/lead_list",
         element:<LeadList/>
       },
+      // {
+      //   path:"/alllead",
+      //   element:<Allleads/>
+      // },
       
     ]
   }

@@ -53,8 +53,11 @@ function Header() {
             Home
           </Link>
           <Link to="/lead_list" className="text-lg hover:text-fuchsia-200">
-           My Lead
+           Myleads
           </Link>
+          {/* <Link to="/alllead" className="text-lg hover:text-fuchsia-200">
+           Leads
+          </Link> */}
 
           {isLoggedIn ? (
             <button

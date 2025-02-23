@@ -77,15 +77,19 @@ const Footer = () => {
                 <span className="text-white">👉🏻 </span>Home
               </p>
               </NavLink>
-              <NavLink to={"/leads"}><p className="text-gray-400 text-sm">
-                <span className="text-white">👉🏻 </span> Leads
+              <NavLink to={"/lead_list"}><p className="text-gray-400 text-sm">
+                <span className="text-white">👉🏻 </span>My Leads
               </p>
               </NavLink>
-              <NavLink to={"/projects"}><p className="text-gray-400 text-sm">
+              {/* <NavLink to={"/alllead"}><p className="text-gray-400 text-sm">
+                <span className="text-white">👉🏻 </span>All Leads
+              </p>
+              </NavLink> */}
+              <NavLink to={"/login"}><p className="text-gray-400 text-sm">
                 <span className="text-white">👉🏻 </span> login
               </p>
               </NavLink>
-              <NavLink to={"/education"}><p className="text-gray-400 text-sm">
+              <NavLink to={"/signUp"}><p className="text-gray-400 text-sm">
                 <span className="text-white">👉🏻 </span> signUp
               </p>
               </NavLink>
