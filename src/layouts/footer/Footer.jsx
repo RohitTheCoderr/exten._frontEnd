@@ -26,11 +26,11 @@ const Footer = () => {
             <div className="w-8 h-1 bg-gradient-to-r from-fuchsia-500 to-purple-700 my-4" ></div>
             <div>
               <p className="text-gray-400 text-sm">
-                <span className="text-white">Phone:  </span> +91-9654853181
+                <span className="text-white">Phone:  </span> +91-7678295963
               </p>
-              <p className="text-gray-400 text-sm">
+              {/* <p className="text-gray-400 text-sm">
                 <span className="text-white">Phone:  </span> +91-8595152392
-              </p>
+              </p> */}
             </div>
           </div>
 
@@ -57,11 +57,11 @@ const Footer = () => {
             <div className="w-8 h-1 bg-gradient-to-r from-fuchsia-500 to-purple-700 my-4" ></div>
             <div>
               <p className="text-gray-400 text-sm">
-                <span className="text-white">Gmail 1: </span>rohitkumar9643017@gmail.com
+                <span className="text-white">Gmail 1: </span>tamorkhushi@gmail.com
               </p>
-              <p className="text-gray-400 text-sm">
+              {/* <p className="text-gray-400 text-sm">
                 <span className="text-white">Gmail 2: </span>aakumar66333@gmail.com
-              </p>
+              </p> */}
             </div>
           </div>
 
@@ -101,7 +101,7 @@ const Footer = () => {
         {/* Copyright */}
         <div className="text-center flex flex-wrap justify-center md:justify-between px-4 rounded-lg text-sm lg:text-[17px] text-[#000000] font-semibold py-1 md:py-4 bg-white mt-4 ">
           <div>© 2025 All Rights Reserved Terms of Use and Privacy Policy</div>
-          <div>This Website Developed By Rohit</div>
+          <div>This Website Developed By khushi</div>
         </div>
       </div>
     </section>
